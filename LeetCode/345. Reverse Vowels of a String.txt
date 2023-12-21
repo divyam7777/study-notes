@@ -1,0 +1,21 @@
+https://leetcode.com/problems/reverse-vowels-of-a-string/description/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution(object):
+    def reverseVowels(self, s):
+        z = ""
+        v = []
+        for i in s:
+            if( i == 'a' or i == 'e' or i == 'i' or i == 'o' or i == 'u' or  i == 'A' or i == 'E' or i == 'I' or i == 'O' or i == 'U'):
+                v.append(i)
+        v.reverse()
+        n = 0
+        for i in s:
+            if(  i == 'a' or i == 'e' or i == 'i' or i == 'o' or i == 'u' or  i == 'A' or i == 'E' or i == 'I' or i == 'O' or i == 'U'):
+                z = z + v[n]
+                n = n + 1
+            else:
+                z = z + i
+        return(z)
+# iterate through every alphabet in word and extract vowels
+# store them in a list and then reverse the order of this list
+# add one be one every aplhabet ,if vowel found and string from list.

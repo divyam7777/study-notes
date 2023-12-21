@@ -1,0 +1,30 @@
+https://leetcode.com/problems/merge-strings-alternately/description/?envType=study-plan-v2&envId=leetcode-75
+
+
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        len1 = len(word1)
+        len2 = len(word2)
+        len3 = 0
+        temp = ""
+        # Example 2 explamnation
+        if len1<=len2:
+            len3 = len1 #ab will be stored
+            temp = word2 # length will be 2
+        else:
+            len3 = len2
+            temp = word1
+
+        ans = ""
+        j=0
+        k=0
+        for i in range(2*len3): # i will start from 0 to 4 as 2*len3 and len3 is 2
+            if(i%2==0):
+                ans = ans + word1[j:j+1] #a,apb
+                j=j+1
+            else:
+                ans = ans + word2[k:k+1] #ap,apbq now exit as i is reached to 4
+                k=k+1
+        ans = ans + temp[len3:len2+len1] # ans = apbq +temp[2:6] (rs)
+        return ans
+        

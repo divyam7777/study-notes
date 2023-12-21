@@ -1,0 +1,27 @@
+https://leetcode.com/problems/maximum-average-subarray-i/description/?envType=study-plan-v2&envId=leetcode-75
+
+import numpy as np
+class Solution(object):
+    def findMaxAverage(self, nums, k):
+        sum2 = np.sum(nums[0:k])
+        a = 0
+        if(len(nums) == 1):
+            return nums[0]
+        n = k
+        sum1 = sum2
+        while(n < len(nums)):
+            sum2 = sum2 - nums[a]
+            sum2 = sum2 + nums[n]
+            if(sum2 >= sum1):
+                sum1 = sum2
+            a = a+1
+            n = n+1 
+
+        total = (float(sum1)/float(k))
+        return(total)
+            
+            
+# sum2 will be sum of initial k numbers
+# k number should be in continues subarray
+# then we will iterate subarray from array and store the sum of subarray in sum1 if it is greater than sum2
+# divide sum1 by k 

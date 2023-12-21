@@ -1,0 +1,20 @@
+https://leetcode.com/problems/move-zeroes/description/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution(object):
+    def moveZeroes(self, nums):
+        j = len(nums)
+        i = 0
+        while(i<j):
+            if(nums[i] == 0):
+                nums.pop(i)
+                nums.insert(j,0)
+                j = j - 1
+                i = i - 1
+            i = i + 1
+
+        return nums
+        
+# this code will iterate through every number in list 
+# if number is 0 then 0 will be pop out from list and added at the env
+# end of the loop when i will be greater j
+# it means all zero has been moved to end so we just need to return the list now

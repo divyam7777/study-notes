@@ -1,0 +1,21 @@
+https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/description/?envType=study-plan-v2&envId=leetcode-75
+
+
+class Solution(object):
+    def kidsWithCandies(self, candies, extraCandies):
+        n = max(candies)
+        for i in range(len(candies)):   
+            m = candies[i] + extraCandies
+            if( m >= n):
+                candies[i] = True
+            else:
+                candies[i] = False
+        return(candies)
+# first store the highest number of candie in n
+# iterate through every number in list
+# add extraCandies in every number 
+# if extraCandies + candies equals or greater then n return true
+                
+
+
+        

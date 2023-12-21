@@ -1,0 +1,32 @@
+https://leetcode.com/problems/container-with-most-water/description/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution(object):
+    def maxArea(self, height):
+        i = 0
+        j = len(height) - 1
+        area = 0
+
+        while (i < j):
+            # print(i,j)
+            if(height[i] > height[j]):
+                total = (j-i)*height[j]
+                if(total > area):
+                    area = total
+                j = j - 1
+            else:
+                total = (j-i)*height[i]
+                if(total > area):
+                    area = total
+                i = i + 1
+        return(area)
+            
+
+# i and j are initialized as the indices of the first and last elements in the height array, respectively.
+# The while loop continues as long as the left pointer (i) is less than the right pointer (j), meaning there are still potential pairs of lines to consider.
+# If the height of the line at index i is greater than the height of the line at index j, calculate the area formed by the lines at indices i and j. Update area if the calculated area is greater than the current maximum.
+# Move the right pointer (j) one step to the left.
+# If the height of the line at index i is less than or equal to the height of the line at index j, calculate the area formed by the lines at indices i and j. Update area if the calculated area is greater than the current maximum.
+# Move the left pointer (i) one step to the right.
+
+
+

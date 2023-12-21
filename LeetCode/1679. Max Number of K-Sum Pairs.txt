@@ -1,0 +1,30 @@
+https://leetcode.com/problems/max-number-of-k-sum-pairs/description/?envType=study-plan-v2&envId=leetcode-75
+
+import numpy as np
+class Solution(object):
+    def maxOperations(self, nums, k):
+        nums.sort()
+        i = 0
+        j = len(nums) - 1
+        count = 0
+        while( i < j):
+            x = nums[i] + nums[j]
+            if(x > k):
+                j = j - 1
+            elif(x < k):
+                i = i + 1
+            else:
+                count = count + 1
+                j = j - 1
+                i = i + 1
+
+        return(count)
+        
+
+# two pointers approach where we have to find pair of number in a list which equals to k
+# # sort the array
+# start a loop where i should be less then j
+# x is sum of number which is pointed by i and j
+# If x is greater than K then decrease the value of J (as we need smaller number).
+# if x is smaller than k then increse the value of i (as we need greater number)
+# if x == K then increase the counter and decrease both the pointer

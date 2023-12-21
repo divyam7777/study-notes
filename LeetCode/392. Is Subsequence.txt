@@ -1,0 +1,44 @@
+https://leetcode.com/problems/is-subsequence/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution(object):
+    def isSubsequence(self, s, t):
+        i = 0
+        k = len(s)-1
+
+        m = 0
+        j = len(t)-1
+        y = False
+        x = False
+
+        count = count = 0
+        while(i<=k and m<=j):
+
+            if(s[i]==t[m]):
+                count = count + 1
+                i = i + 1
+                y = True
+
+
+            if(s[k] == t[j]):
+                count = count + 1
+                k = k - 1
+                x = True
+            print(m,j,x,y)
+            if(m == j) and (y == x):
+                count = count - 1
+
+            m = m + 1
+            j = j - 1
+            y = False
+            x = False
+        print(count)
+        if(len(s)<=count):
+            return True
+
+
+            
+
+            
+
+
+        

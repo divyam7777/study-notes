@@ -1,0 +1,21 @@
+https://leetcode.com/problems/product-of-array-except-self/description/?envType=study-plan-v2&envId=leetcode-75
+
+import numpy as np
+class Solution(object):
+    def productExceptSelf(self, nums):
+        nums = np.array(nums)
+        ans = []
+        n = 0
+        m = 0
+        z = 0
+        for i in range(len(nums)):
+            n = nums[0:i]
+            m = nums[i+1:len(nums)]
+            # arr = np.concatenate((n,m))
+            z = (np.prod(n))*(np.prod(m))
+            ans.append(z)
+        return(ans)
+
+
+#  returns an array where each element is the product of all the elements in the input array nums, except for the one at the current index.
+        

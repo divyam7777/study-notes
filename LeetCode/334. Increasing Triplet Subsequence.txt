@@ -1,0 +1,17 @@
+https://leetcode.com/problems/increasing-triplet-subsequence/description/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution(object):
+    def increasingTriplet(self, nums):
+        x = None
+        y = None
+        for i in nums:
+            if(i <= x) or (x == None):
+                x=i
+            elif(i <= y) or (y == None):
+                y=i
+            else:
+                return True
+
+# i will iterate through the list
+# x and y are used to keep track of two smaller numbers. If we find a number that is larger than both x and y then it forms
+# return true if above conditions are failed else false will be returned.

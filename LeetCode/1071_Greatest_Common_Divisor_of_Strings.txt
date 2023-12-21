@@ -1,0 +1,43 @@
+https://leetcode.com/problems/greatest-common-divisor-of-strings/?envType=study-plan-v2&envId=leetcode-75
+
+class Solution(object):
+    def gcdOfStrings(self, str1, str2): 
+## str1 = "ABABAB", str2 = "ABAB"
+        j = 0
+        a = []
+        b = [] 
+        z = ""  
+        temp = ""
+        i = 0
+##  this for loop will checkout repeatable sub string in str1 
+        for i in range(1,len(str1)):
+            count = 1
+            if(len(str1)%i==0):
+                temp = str1[0:i]
+                for j in range(i,len(str1),i):
+                    if(temp != str1[j:j+i]):
+                        count = 0
+                if(count==1):
+                    a.append(temp)
+##  this for loop will checkout repeatable sub string in str2
+        for i in range(1,len(str2)):
+            count = 1
+            if(len(str2)%i==0):
+                temp = str2[0:i]
+                for j in range(i,len(str2),i):
+                    if(temp != str2[j:j+i]):
+                        count = 0
+                if(count==1):
+                    b.append(temp)
+        a.append(str1)
+        b.append(str2)
+        ## a = [AB,ABABAB] b = [AB,ABAB]
+
+        for i in a:
+            if i in b:
+                z = i       
+        return z
+
+
+
+        
